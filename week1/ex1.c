@@ -6,7 +6,7 @@ typedef struct
 {
   char name[81];
   int count;
-  char line[999];
+  char line[20000];
 }data;
 
 typedef data elementtype;
@@ -65,7 +65,7 @@ if (*root == NULL){
  else if (strcmp(element.name,(*root)->element.name)>0) InsertNode(element, &(*root)->right); 
 }
 char* itostr(int num){
-  char buf[5];  
+  char buf[10];  
   sprintf(buf,"%d",num);
   char * buff=(char*)malloc((strlen(buf)+1)*sizeof(char));
   strcpy(buff,buf);
