@@ -90,6 +90,13 @@ treetype banword(treetype root){
 	fclose(f);
 	return root;
 }
+char* itostr(int num){
+  char buf[5];  
+  sprintf(buf,"%d",num);
+  char * buff=(char*)malloc((strlen(buf)+1)*sizeof(char));
+  strcpy(buff,buf);
+  return buff;
+}
 treetype Search(char *key,treetype root)
 {
  if(root==NULL) return NULL;
@@ -125,10 +132,10 @@ treetype count(FILE *f,char name[],treetype root,treetype stopw)
   		
 			standardized(el.name);
 			strcpy(el.line,",");
- 			
- 			itoa(line,temp,10);
+ 			char*tmp=itostr(line);
+                        printf("%d,%s\n",line,tmp);
  		
- 			strcpy(&el.line[1],temp);
+ 			strcpy(&el.line[1],tmp);
 			if(strcmp(el.name,"\0")!=0&&(Search(el.name,stopw)==NULL))InsertNode(el,&root);
     }}}
   fclose(f);
