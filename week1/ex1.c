@@ -158,7 +158,10 @@ int main()
   	treetype root=NULL;
   	treetype stopw=NULL;
   	stopw=banword(stopw);
-  	root=count(f,"vanban.txt",root,stopw);
+        char name[20];
+        printf("Enter name file: ");
+        scanf("%s",name);
+        root=count(f,name,root,stopw);
 	printftree(root);
   	freetree(root);
   	freetree(stopw);
