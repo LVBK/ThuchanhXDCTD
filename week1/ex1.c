@@ -133,8 +133,6 @@ treetype count(FILE *f,char name[],treetype root,treetype stopw)
 			standardized(el.name);
 			strcpy(el.line,",");
  			char*tmp=itostr(line);
-                        printf("%d,%s\n",line,tmp);
- 		
  			strcpy(&el.line[1],tmp);
 			if(strcmp(el.name,"\0")!=0&&(Search(el.name,stopw)==NULL))InsertNode(el,&root);
     }}}
