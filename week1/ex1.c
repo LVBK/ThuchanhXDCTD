@@ -6,7 +6,7 @@ typedef struct
 {
   char name[81];
   int count;
-  char line[30];
+  char line[999];
 }data;
 
 typedef data elementtype;
