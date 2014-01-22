@@ -16,6 +16,18 @@ typedef struct node
   struct node *left,*right;
 }node;
 typedef struct node *treetype;
+int parse(char*buff,char *part[])
+{
+  char*p;
+  int i=0;
+  p=strtok(buff," ");
+  while(p!=NULL)
+    {
+      part[i++]=strdup(p);
+      p=strtok(NULL," ");
+    }
+  return i;
+}
 
 void printftree(treetype tree)
 {
@@ -51,6 +63,13 @@ if (*root == NULL){
 }
  else if (strcmp(element.name,(*root)->element.name)<0) InsertNode(element, &(*root)->left);
  else if (strcmp(element.name,(*root)->element.name)>0) InsertNode(element, &(*root)->right); 
+}
+char* itostr(int num){
+  char buf[5];  
+  sprintf(buf,"%d",num);
+  char * buff=(char*)malloc((strlen(buf)+1)*sizeof(char));
+  strcpy(buff,buf);
+  return buff;
 }
 void standardized(char s[])
 {
@@ -90,13 +109,7 @@ treetype banword(treetype root){
 	fclose(f);
 	return root;
 }
-char* itostr(int num){
-  char buf[5];  
-  sprintf(buf,"%d",num);
-  char * buff=(char*)malloc((strlen(buf)+1)*sizeof(char));
-  strcpy(buff,buf);
-  return buff;
-}
+
 treetype Search(char *key,treetype root)
 {
  if(root==NULL) return NULL;
@@ -139,21 +152,6 @@ treetype count(FILE *f,char name[],treetype root,treetype stopw)
   fclose(f);
 	return root;
 }
-
-
-int parse(char*buff,char *part[])
-{
-  char*p;
-  int i=0;
-  p=strtok(buff," ");
-  while(p!=NULL)
-    {
-      part[i++]=strdup(p);
-      p=strtok(NULL," ");
-    }
-  return i;
-}
-
 int main()
 {
   	FILE *f;
